@@ -28,6 +28,7 @@ function setTime(){
     const hoursForClock = hours % 12;
     const minutes = time.getMinutes();
     const seconds = time.getSeconds();
+    const ampm = hours > 12 ? 'PM' : 'AM';
 
     const angel = 6;
     const angleSecNeedle  = seconds * angel;
@@ -40,13 +41,11 @@ function setTime(){
     secondEl.style.transform = `translate(-50%, -100%) rotate(${angleSecNeedle}deg)`;
     minuteEl.style.transform = `translate(-50%, -100%) rotate(${angleMinNeedle}deg)`;
     hourEl.style.transform = `translate(-50%, -100%) rotate(${angleHourNeedle}deg)`;
-    timeEl.innerHTML = `${hoursForClock}:${firstMin + minutes}:${firstSec + seconds}`;
+    timeEl.innerHTML = `${hoursForClock}:${firstMin + minutes}:${firstSec + seconds} ${ampm}`;
     dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
 }
 
-setInterval(()=> {
-    setTime();
-}, 1000)
+setInterval(setTime, 1000)
 
 function firsElem(el){
     if(el.toString().split('').length < 2) {
