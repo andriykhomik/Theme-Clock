@@ -30,31 +30,6 @@ function setTime(){
     const seconds = time.getSeconds();
     const ampm = hours > 12 ? 'PM' : 'AM';
 
-    const angel = 6;
-    const angleSecNeedle  = seconds * angel;
-    const angleMinNeedle  = minutes * angel;
-    const angleHourNeedle  = hoursForClock * angel * 5;
-
-    const firstSec = firsElem(seconds);
-    const firstMin = firsElem(minutes);
-
-    secondEl.style.transform = `translate(-50%, -100%) rotate(${angleSecNeedle}deg)`;
-    minuteEl.style.transform = `translate(-50%, -100%) rotate(${angleMinNeedle}deg)`;
-    hourEl.style.transform = `translate(-50%, -100%) rotate(${angleHourNeedle}deg)`;
-    timeEl.innerHTML = `${hoursForClock}:${firstMin + minutes}:${firstSec + seconds} ${ampm}`;
-    dateEl.innerHTML = `${days[day]}, ${months[month]} <span class="circle">${date}</span>`;
 }
 
-setInterval(setTime, 1000)
 
-function firsElem(el){
-    if(el.toString().split('').length < 2) {
-            // this part of code for learning
-        // const secArr = el.toString ().split ('');
-        // secArr.unshift ('0');
-        // return secArr[0];
-        return '0';
-    } else {
-        return '';
-    }
-}
