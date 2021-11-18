@@ -49,7 +49,7 @@ setInterval(setTime, 1000)
 
 function firsElem(el){
     if(el.toString().split('').length < 2) {
-            // this part of code for learning
+        // this part of code for learning
         // const secArr = el.toString ().split ('');
         // secArr.unshift ('0');
         // return secArr[0];
